@@ -51,21 +51,16 @@ public:
             product *= num;
         }
       
-      
-      
-        
         while(!s2.empty()) {
             s1.push(s2.top());
             s2.pop();
         }
-        
+      
         return product;
     }
 };
   
-
-
-// Approach 2
+// Approach 2 - To be Written
 
 // Code 3 - Sliding Window Maximum
 
