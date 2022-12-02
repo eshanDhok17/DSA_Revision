@@ -83,7 +83,10 @@ public:
 };
 
 // Code 3 - Sliding Window Maximum
-
+/*
+ * Typical Sliding window with catch to remove elements from front,
+ * Implimented that using deque data structure.
+ */
 class Solution {
 public:
     vector<int> maxSlidingWindow(vector<int> &nums, int &k) {
