@@ -60,7 +60,27 @@ public:
     }
 };
   
-// Approach 2 - To be Written
+// Approach 2 - To be Written (Queue)
+class ProductOfNumbers {
+public:
+  /*
+   * We reinitialize our elements to 1 when encountered 0 due to fact that it will make
+   * our answer zero, and one because it is the least number to make answer.
+   */
+    vector<int> elements = {1};
+    ProductOfNumbers() {  }
+    
+    void add(int num) {
+        if(num != 0) {
+            elements.push_back(elements.back() * num);
+        } else elements = {1};
+    }
+    
+    int getProduct(int k) {
+        int n = size(elements);
+        return k < n ? (elements.back()/elements[n-k-1]) : 0;
+    }
+};
 
 // Code 3 - Sliding Window Maximum
 
