@@ -1,6 +1,6 @@
 // Code 1 - Reverse Linked List
 
-// Recursive
+// Recursive O(n) space
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
@@ -15,8 +15,20 @@ public:
     }
 };
 
-// Iterative
-
+// Iterative (Java) 3 pointers
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        if(head == null) return head;
+        ListNode cur = head, prev = null;
+        while(cur != null) {
+            ListNode next = cur.next;
+            cur.next = prev;
+            prev = cur;
+            cur = next;
+        }
+        return prev;
+    }
+}
 
 // Code 2 - Remove Nth Node From End of List
 
@@ -37,7 +49,7 @@ public:
       }
   };
 
-// Code 3 - Delete the Middle Node of a Linked List
+// Code 3 - Delete the Middle Node of a Linked List - Java
 
   class Solution {
     public ListNode deleteMiddle(ListNode head) {
