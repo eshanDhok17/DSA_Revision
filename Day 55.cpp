@@ -22,6 +22,9 @@ public:
 
   class Solution {
   public:
+      /*
+       * Nth node from back would be (length - nth + 1)th node from beginning
+       */
       ListNode* removeNthFromEnd(ListNode* head, int n) {
           auto slow = head, fast = slow;
           while(n--) fast = fast->next;
@@ -38,6 +41,9 @@ public:
 
   class Solution {
     public ListNode deleteMiddle(ListNode head) {
+      /*
+       * Hare and tortoise method to get middle of LinkedList
+       */
         if(head.next == null) return head.next;
         ListNode slow = head;
         ListNode fast = head.next;
