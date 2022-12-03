@@ -26,11 +26,39 @@ public:
 
 // Code 1 - Reverse nodes in K-group
 
-
+class Solution {
+public:
+  /*
+   * Basic Intution is to call reverse function for every k Nodes recursively by passing xth and (x+k)th node
+   * time - O(n), space - O(n/k) recursive stack space
+   */
+    ListNode* reverseList(ListNode* &head, ListNode* &tail) {
+        ListNode *cur = head, *prev = nullptr, *next = nullptr;
+        while(cur != tail) {
+            next = cur->next;
+            cur->next = prev;
+            prev = cur;
+            cur = next;
+        }
+        return prev;
+    }
+    
+    ListNode* reverseKGroup(ListNode* &head, int &k) {
+        auto cur = head;
+        for(int i=0; i<k; i++) {
+            if(!cur) return head;
+            cur = cur->next;
+        }
+        auto newHead = reverseList(head, cur);
+        head->next = reverseKGroup(cur, k);
+        return newHead;
+    }
+};
 
 // Code 2 - LinkList Cycle II
 
 // Approach 1 - Slow and fast pointers
+
 class Solution {
 public:
     ListNode *detectCycle(ListNode *head) {
@@ -50,7 +78,7 @@ public:
     }
 };
 
-// Approach 2 - Set
+// Approach 2 - Set (only valid for unique elements)
 
 class Solution {
 public:
