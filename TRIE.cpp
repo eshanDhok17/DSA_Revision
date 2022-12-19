@@ -3,15 +3,33 @@ class Node {
 public:
   Node *links[26];
   int cntEndWith = 0, cntPrefix = 0;
-  bool containsKey(char &ch) { return (links[ch - 'a'] != NULL); }
-  void put(char &ch, Node *node) { links[ch - 'a'] = node; }
-  Node *get(char ch) { return links[ch - 'a']; }
-  void incPre() { cntPrefix++; }
-  void delPre() { cntPrefix--; }
-  void incEnd() { cntEndWith++; }
-  void delEnd() { cntEndWith--; }
-  int getPre() { return cntPrefix; }
-  int getEnd() { return cntEndWith; }
+  bool containsKey(char &ch) { 
+    return (links[ch - 'a'] != NULL);
+  }
+  void put(char &ch, Node *node) {
+    links[ch - 'a'] = node; 
+  }
+  Node *get(char ch) { 
+    return links[ch - 'a']; 
+  }
+  void incPre() { 
+    cntPrefix++;
+  }
+  void delPre() { 
+    cntPrefix--; 
+  }
+  void incEnd() { 
+    cntEndWith++;
+  }
+  void delEnd() { 
+    cntEndWith--;
+  }
+  int getPre() { 
+    return cntPrefix;
+  }
+  int getEnd() { 
+    return cntEndWith;
+  }
 };
 
 class Trie {
