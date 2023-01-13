@@ -1,5 +1,25 @@
 // Question 1 - Largest subarray of 0's and 1's
-
+// No sliding window because we dont know when to contract window or expand window
+class Solution{
+  public:
+    int maxLen(int arr[], int n)
+    {
+        for(int i=0; i<n; i++) if(arr[i] == 0) arr[i] = -1;
+        unordered_map<int, int> mp;
+        mp[0] = -1;
+        int res = 0;
+        long sum = 0;
+        for(int i=0; i<n; i++) {
+            sum += arr[i];
+            if(mp.find((int)sum) != mp.end())
+            {
+                res = max(res, i - mp[(int)sum]);
+            }
+            else mp[(int)sum] = i;
+        }
+        return res;
+    }
+};
 
 // Question 2 - Longest Sub-Array with Sum K
 class Solution
