@@ -1,4 +1,4 @@
-Code 1 - Minimum Cost to Connect Sticks- O(NlogK)
+// Code 1 - Minimum Cost to Connect Sticks- O(NlogN)
 
 class Solution {
 public:
@@ -16,14 +16,15 @@ public:
         while(pq.size() > 1) {
             int stick1 = pq.top(); pq.pop();
             int stick2 = pq.top(); pq.pop();
-            sum += stick1 + stick2;
-            pq.push(stick1+stick2);
+          	int bigStick = (stick1 + stick2);
+            sum += bigStick;
+            pq.push(bigStick);
         }
         return sum;
     }
 };
 
-Code 2 - K Closest Points to Origin - O(NlogK)
+// Code 2 - K Closest Points to Origin - O(NlogK)
 
 class Solution {
 public:
